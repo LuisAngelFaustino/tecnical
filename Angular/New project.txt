@@ -1,8 +1,33 @@
 //CRER PROYECTO NUEVO EN ANGULAR
 
+	.. INSTALACIÓN DE ANGULAR 
+
+		-- npm install @angular/cli
+
 
 	1.- CREACIÓN DE PROYECTO
 	
 		-- ng new PortafolioPerfilfaus
 		
-	2.- 
+	2.- INSTALAR BOOTSTRAP
+
+		-- npm install bootstrap jquery @popperjs/core
+
+			"styles": [
+			"node_modules/bootstrap/dist/css/bootstrap.min.css",
+			"src/styles.scss"
+			],
+			"scripts": [
+			"node_modules/jquery/dist/jquery.min.js",
+			"node_modules/@popperjs/core/dist/umd/popper.min.js",
+			"node_modules/bootstrap/dist/js/bootstrap.min.js"
+			]
+
+	3.- INSTALAR JQUERY EN ANGULAR
+
+		-- npm install jquery --save
+
+
+			"scripts" :["./node_modules/jquery/dist/jquery.min.js"]
+
+	
