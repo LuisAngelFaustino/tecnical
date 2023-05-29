@@ -1,0 +1,90 @@
+<div class="container mt-5 ">
+    <div class="for mt-5 mb-5" >
+      <form [formGroup]="form">
+        <div class="form-group row mb-5">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Nss</label>
+              <div class="col-sm-10">
+                <input formControlName="Nss"
+                 type="text" class="form-control" id="inputNss" placeholder="Nss">
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select 
+                formControlName="select"
+                 class="form-control" id="exampleFormControlSelect1">
+                  <!-- <option *ngFor="let datos of _datos" >{{datos['title']}}</option> -->
+                  <option value="0" disabled>Selecciona una opción</option>
+                  <option *ngFor="let datos of _datos" [value]="datos['game_index']">
+                    {{ datos['version']['name'] }}
+                  </option>
+                </select>
+            </div>
+          </form>
+      </div>
+    <table class="table mb-5">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Game</th>
+            <th scope="col">Version</th>
+            <th scope="col">Name</th>
+            <th scope="col">Url</th>
+            <th scope="col">Actualizar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of _datos;let indice=index">
+            <th  scope="row">{{indice+1}}</th>
+            <th scope="row">{{item["game_index"]}}</th>
+            <th scope="row">{{item["version"]["name"] }}</th>
+            <th scope="row">{{item["game_index"]}}</th>
+            <th scope="row">{{item["version"]["url"]}}</th>
+            <th [attr.data-index]="item['version']['name']" class="cursor" scope="row" (click)="addProductos(
+            item['version']['name'],
+            item['game_index'],
+            item['version']['name'],
+            item['version']['url'],
+            item['game_index']                     
+            )">####</th>
+            
+            <!-- <th id="{{`${item["game_index"]}`]}}" class="cursor" scope="row" (click)="addProductos($event)">####</th> -->
+          </tr>
+        </tbody>
+      </table>2
+</div>
+<!-- 
+
+<div class="col-12 col-md-6 col-lg-3 mt-4 mt-lg-0"> 
+  <div class="table-form-report total-table"> 
+      <div class="page-title-carop"> 
+          <h2>Aportación de complementario</h2> 
+          <div class="card-ahorro-icon"> 
+              <em class="fas fa-shopping-basket"> 
+              </em> 
+          </div> 
+      </div> 
+      <div *ngIf="validaaportaciones?.complementario==''"  
+      class="dont-exist">No existen montos</div> 
+      <div *ngIf="validaaportaciones?.complementario!=''" class="pb-0"> 
+          <div class="final-last-apolv"  
+          *ngFor="let validacomplementario of validaaportaciones?.complementario"> 
+              <h4 class="mb-2 s-t-title amounts-title-apolv"> 
+                  {{validacomplementario?.origen}} 
+              </h4> 
+               <p class="amounts-apolv"><span>Montos:</span> 
+                  <span class="text-right"><em class="fas fa-funnel-dollar"> 
+                  </em> {{validacomplementario?.montos}}</span> 
+              </p> 
+              <p class="amounts-apolv"><span>Fecha de inversión:</span> 
+                  <span class="text-right"> <em class="fas fa-calendar-alt"> 
+                  </em> {{validacomplementario?.fechaInversion}}</span> 
+              </p> 
+              <p class="amounts-apolv"><span>Importe:</span> 
+                  <span class="text-right"> <em class="fas fa-hand-holding-usd"> 
+                  </em> $ {{validacomplementario?.importe}}</span> 
+              </p> 
+          </div> 
+        </div>  
+  </div> 
+</div> -->

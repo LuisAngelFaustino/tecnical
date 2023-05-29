@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=PT+Serif&family=Permanent+Marker&display=swap');
+
+$Colorletter: black;
+$ColorBody: white;
+$Colorlogotitles: #ffc107;
+$ColorCardExperince: #464646;
+$ColorCardExperinceDate: #121212;
+$ColorCardhover: #4e4e4e;
+$Colorsubtlescard:rgb(163 149 149);
+
+body{
+    background-color: $ColorBody;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden !important;
+}
+
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  body::-webkit-scrollbar:vertical {
+    width: 8px;
+  }
+  
+  body::-webkit-scrollbar-button:increment,
+  body::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #d0d0ce;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+  
+  body::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }

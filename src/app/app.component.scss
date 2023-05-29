@@ -1,0 +1,656 @@
+@import '../styles.scss';
+
+.divheader {
+    background-color: $ColorBody;
+}
+
+h1 {
+    font-family: "PT Serif", serif;
+    color: $Colorletter;
+    font-size: 40px;
+    text-align: center;
+}
+
+h3 {
+    font-family: "PT Serif", serif;
+    color: $Colorlogotitles;
+    font-size: 24px;
+    text-align: center;
+}
+
+.containt-header {
+    margin: 2% 20% 2% 20%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.letter-sub {
+    font-family: "PT Serif", serif;
+    color: $Colorletter;
+    text-align: center;
+    margin-top: -18px;
+    margin-left: 190px;
+    font-size: 23px;
+}
+
+.letter-header {
+    color: $Colorletter;
+}
+
+.lfmlogo {
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+
+.fz18 {
+    font-size: 18px;
+}
+
+.fz20 {
+    font-size: 20px;
+}
+
+.fz22 {
+    font-size: 22px;
+}
+
+.fz24 {
+    font-size: 24px;
+}
+
+.fz26 {
+    font-size: 26px;
+}
+
+.fz28 {
+    font-size: 28px;
+}
+
+.fz35 {
+    font-size: 35px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.bold500 {
+    font-weight: 500;
+}
+
+.line {
+    background-color: $Colorletter;
+    color: $Colorletter;
+    height: 4px;
+}
+
+.img-profile {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+.img-dev {
+    width: 100%;
+    display: block;
+    margin: auto;
+    border-radius: 40px;
+    margin-top: 25%;
+}
+
+.img-ilustration {
+    width: 60%;
+    margin: auto;
+    display: block;
+}
+
+.img-ilustration-pay {
+    width: 37%;
+    margin: auto;
+    display: block;
+}
+
+.img-ilustration-fro {
+    width: 52%;
+    margin: auto;
+    display: block;
+}
+
+.divcircle:hover {
+    .letter-subtles-card {
+        color: $Colorletter !important;
+        border-color: $Colorletter;
+    }
+}
+
+.dshow {
+    display: none;
+}
+
+.divcircles:hover {
+
+    .img-ilustration,
+    .img-ilustration-pay,
+    .img-ilustration-fro {
+        background-color: $ColorCardhover;
+        border-radius: 80px;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        padding: 0px 0px 0px 13px;
+        -webkit-animation: 4s linear infinite;
+        animation: 4s linear infinite moveBounce;
+    }
+
+    .dshow {
+        animation: blur-in-expand 0.5s linear both;
+        display: block;
+    }
+
+}
+
+.Developer {
+    -webkit-animation: 6s ease-in-out infinite wobble;
+    animation: 6s ease-in-out infinite wobble;
+}
+.overf-x{
+    overflow-x: hidden;
+}
+.letter-name {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 147px;
+    color: $Colorletter;
+}
+
+.letter-desc {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+    color: $Colorletter;
+}
+
+.letter-titles {
+    font-family: 'PT Serif', serif;
+    color: $Colorletter;
+}
+
+.letter-subtles-card {
+    font-family: 'PT Serif', serif;
+    color: $Colorsubtlescard;
+
+}
+
+.fa-table {
+    display: table;
+}
+
+.fa-hi {
+    display: table-cell;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.content-about {
+    margin-top: 60px;
+}
+
+.titlesbefore::before {
+    content: "";
+    position: absolute;
+    background-color: $Colorletter;
+    width: 12%;
+    height: 3px;
+    top: 105%;
+    left: 39%;
+}
+
+.line-about {
+    height: 4px;
+    color: $Colorletter;
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    content: "";
+}
+
+.cont-line {
+    margin: 5px 5px 5px 5px;
+}
+
+.timp-line {
+    background-color: $Colorletter;
+    color: $Colorletter;
+    height: 4px;
+    width: 10%;
+    margin-left: 38%;
+}
+
+.titles-general {
+    margin-left: 50px;
+    margin-right: 50px
+}
+
+.titles-general-subtitles {
+    margin-top: -35px !important;
+    margin-left: 156px;
+}
+
+.card-time-lg-emp {
+    background-color: $ColorBody;
+    text-align: center;
+    height: 215px;
+    padding-top: 10px;
+    color: $ColorBody;
+    width: 472px;
+    // margin-left: 70px;
+    overflow-x: hidden !important;
+}
+
+.card-time-lg {
+    background-color: $ColorCardExperinceDate;
+    text-align: center;
+    height: 215px;
+    padding-top: 8px;
+    color: $Colorletter;
+    width: 472px;
+    margin-left: 70px;
+}
+
+.card-time-sm-emp {
+    background-color: $ColorBody;
+    text-align: center;
+    height: 196px;
+    color: $ColorBody;
+    width: 450px;
+    margin-top: 0px !important;
+    overflow-x: hidden;
+}
+
+.card-time-sm {
+    background-color: $ColorCardExperinceDate;
+    text-align: center;
+    height: 210px;
+    color: white;
+    width: 450px;
+    margin-top: 0px !important;
+}
+
+.card-time-sm:hover,
+.card-time-lg:hover {
+    .date-exp {
+        color: $Colorlogotitles;
+    }
+
+    .letter-subtles-card {
+        color: $Colorletter;
+    }
+
+    background-color: $ColorCardhover;
+}
+
+.card-time-black {
+    background-color: $ColorBody;
+}
+
+.content-exp {
+    padding: 20px 0px 0px 39px;
+}
+
+.date-exp {
+    font-family: "PT Serif", serif;
+    color: #464646;
+    position: absolute;
+    margin-left: -103px;
+    margin-top: 46px;
+    font-size: 68px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.img-hab {
+    width: 40%;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.7;
+}
+
+.img-emp {
+    width: 40%;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.imgpro {
+    width: 40%;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.imgcyber {
+    width: 45%;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+//Keyframes
+.description:hover {
+    animation: jello-vertical 0.9s linear both
+}
+
+.blur-in-expand:hover {
+    animation: blur-in-expand 0.5s linear both;
+}
+
+.shadow-drop-top-bottom:hover {
+    animation: shadow-drop-top-bottom 0.4s linear both;
+}
+.cursor{
+    cursor: pointer;
+}
+
+@media (min-width: 50px) and (max-width: 800px) {
+    .letter-name {
+        font-size: 70px;
+    }
+
+    .card-time-lg {
+        margin-left: 0px;
+        height: 249px;
+    }
+
+    .card-time-sm-emp {
+        display: none;
+    }
+
+    .card-time-lg-emp {
+        display: none;
+    }
+
+    .card-time-sm {
+        height: 262px;
+    }
+
+    .date-exp {
+        margin-left: 94px;
+        margin-top: -63px;
+    }
+    h1{
+        font-size: 38px;
+    }
+    .timp-line{
+        width: 20%;
+        margin-left: 2%;
+    }
+    .titles-general-subtitles{
+        margin-left: 55px;
+    }
+    .fa-hi{
+        display: block;
+    }
+    .profilecenter{
+        text-align: center;
+    }
+    .lfmlogo{
+        width: 50%;
+    }
+    .img-profile{
+        width: 100%;
+    }
+    .img-dev{
+        margin-top: 13%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .timp-line {
+        width: 9%;
+        margin-left: 39%;
+    }
+}
+
+.cubo div {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px solid white;
+}
+
+@keyframes shadow-drop-top-bottom {
+    0% {
+        box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent
+    }
+
+    100% {
+        box-shadow: 0 -12px 20px -12px rgba(255, 255, 255, .55), 0 12px 20px -12px rgba(255, 255, 255, .55)
+    }
+}
+
+@keyframes blur-in-expand {
+    0% {
+        transform: scale(0);
+        filter: blur(12px);
+        opacity: 0
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1
+    }
+}
+
+.rotate-center {
+    animation: rotate-center 1.8s
+}
+
+@keyframes rotate-center {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes shake-right {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 100% 50%
+    }
+
+    10% {
+        transform: rotate(2deg)
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: rotate(-4deg)
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(4deg)
+    }
+
+    80% {
+        transform: rotate(-2deg)
+    }
+
+    90% {
+        transform: rotate(2deg)
+    }
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1)
+    }
+
+    30% {
+        transform: scale3d(.75, 1.25, 1)
+    }
+
+    40% {
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    50% {
+        transform: scale3d(.85, 1.15, 1)
+    }
+
+    65% {
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    75% {
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+@keyframes blur-in-expand {
+    0% {
+        transform: scale(0);
+        filter: blur(12px);
+        opacity: 0
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1
+    }
+}
+
+
+@keyframes moveBounce {
+
+    0%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px)
+    }
+}
+
+@-webkit-keyframes moveBounce {
+
+    0%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px)
+    }
+}
+
+@-webkit-keyframes wobble {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    15% {
+        -webkit-transform: translate3d(-25%, 0, 0) rotate(-5deg);
+        transform: translate3d(-25%, 0, 0) rotate(-5deg)
+    }
+
+    30% {
+        -webkit-transform: translate3d(20%, 0, 0) rotate(3deg);
+        transform: translate3d(20%, 0, 0) rotate(3deg)
+    }
+
+    45% {
+        -webkit-transform: translate3d(-15%, 0, 0) rotate(-3deg);
+        transform: translate3d(-15%, 0, 0) rotate(-3deg)
+    }
+
+    60% {
+        -webkit-transform: translate3d(10%, 0, 0) rotate(2deg);
+        transform: translate3d(10%, 0, 0) rotate(2deg)
+    }
+
+    75% {
+        -webkit-transform: translate3d(-5%, 0, 0) rotate(-1deg);
+        transform: translate3d(-5%, 0, 0) rotate(-1deg)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes wobble {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    15% {
+        -webkit-transform: translate3d(-25%, 0, 0) rotate(-5deg);
+        transform: translate3d(-25%, 0, 0) rotate(-5deg)
+    }
+
+    30% {
+        -webkit-transform: translate3d(20%, 0, 0) rotate(3deg);
+        transform: translate3d(20%, 0, 0) rotate(3deg)
+    }
+
+    45% {
+        -webkit-transform: translate3d(-15%, 0, 0) rotate(-3deg);
+        transform: translate3d(-15%, 0, 0) rotate(-3deg)
+    }
+
+    60% {
+        -webkit-transform: translate3d(10%, 0, 0) rotate(2deg);
+        transform: translate3d(10%, 0, 0) rotate(2deg)
+    }
+
+    75% {
+        -webkit-transform: translate3d(-5%, 0, 0) rotate(-1deg);
+        transform: translate3d(-5%, 0, 0) rotate(-1deg)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
