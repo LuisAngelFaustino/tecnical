@@ -1,0 +1,58 @@
+//Dockerizar angular
+
+
+NOTA:  Para poder dokcerizar, es necesario que se tenga instalado nom, node y docker.
+
+	
+	1.- Para poder realizar la dockerización de tu proyecto de spring boot, es necesario que compiles tu proyecto y se tenga el Jar
+	
+	
+
+	
+	2.- Ya teniendo el Jar ahora se va a crear una archivo docker 'Dockerfile' en la carpeta raíz con las siguientes lineas
+	
+		#Se tiene que buscar la versión de java que tiene el proyecto o la versión de java en tu pc
+		FROM openjdk:17-jdk-alpine
+		ARG JAR_FILE=target/*.jar
+		COPY ${JAR_FILE} app.jar
+		ENTRYPOINT [ "java","-jar","/app.jar"]
+		
+		
+		
+		
+		*/<- no tomar en cuenta 
+	
+		
+	
+	3.- Una vez ya creado el archivo se va a generar la imagen docker
+	
+		-- sudo docker build -t apiservicesbetters .
+		
+		result: 
+			 => exporting to image                                                                                                                0.1s
+			 => => exporting layers                                                                                                               0.1s
+			 => => writing image sha256:d75fea99061a06029cc73cf1c115c2b144ada56f1c9085349f96dc2012f37d29                                          0.0s
+			 => => naming to docker.io/library/apiservicesbetters   
+			 
+	
+	4.- Ahora vamos a revisar que exista la imagen creada.
+	
+		-- docker images
+		
+		REPOSITORY                        TAG           IMAGE ID       CREATED          SIZE
+		apiservicesbetters                latest        d75fea99061a   18 seconds ago   350MB
+		
+		
+	7.- Si ya existe la imagen vamos a crear un contenedor de sea imagen con puertos especificos
+	
+		docker run -d -it -p 8080:80 apiservicesbetters
+		
+	8.- Listo ya se puede acceder al navegador para ver el proyecto, con 'localhost:8080' o con la IP 'http://10.22.53.62:8080/'
+	
+	
+	
+	//LISTO BRO TU PROYECTO DE SPRING BOOTCILLOS YA ESTÁ DOCKERIZADO
+		
+		
+		
+		

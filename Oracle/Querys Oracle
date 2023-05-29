@@ -1,0 +1,117 @@
+ORACLE DEVELOPER
+
+
+//CREACIÓN DE UNA TABLA
+	
+	    
+
+   CREATE TABLE USUARIOS (
+        idusuario varchar2(36),
+        Nombre varchar2(150),
+        ApellidoP varchar2(100),
+        ApellidoM varchar2(100),
+        Telefono int,
+        Email varchar2(100),
+        Password varchar2(1500)
+    );
+    
+
+
+	
+//PRIMARY KEY Y FORING KEY EN (CREACIÓN DE TABLAS)
+
+
+ CREATE TABLE CATEGORIES (
+        idcategory varchar2(32) not null,
+        name varchar2(70) not null,
+        description varchar2(120),
+        constraint fk_categories primary key (idcategory)
+);
+
+ CREATE TABLE PRODUCTS (
+        idproducto varchar2(32) not null,
+        idcategory varchar2(32) not null,
+        description varchar2(120),
+        stock number(5) not null,
+        price number(6,2),
+        initialcost number(6,2),
+        finalcost number(6,2),
+        CONSTRAINT  ffk_categories FOREIGN KEY (idcategory) REFERENCES CATEGORIES(idcategory)
+        
+);
+
+
+
+//INSERTAR DATOS A TABLAS
+
+	INSERT INTO CATEGORIES(idCategory, name,description) VALUES(
+	sys_guid(),
+	'Ropa Dama',
+	'Ropa de mujer blusas, vestidos, pantalones'
+	)
+
+
+
+	INSERT INTO PRODUCTS(idproducto,
+	idcategory,
+	description,
+	stock,
+	price,
+	initialcost,
+	finalcost
+	) VALUES(
+	sys_guid(),
+	'Ropa Dama',
+	'Ropa de mujer blusas, vestidos, pantalones'
+	)
+	
+	INSERT INTO USUARIOS(idusuario, Nombre,ApellidoP,ApellidoM,Telefono,Email,Password) VALUES(
+	sys_guid(),
+	'Demo',
+   	'des',
+	'sdsd',
+    '039930393',
+    'demo@gamil.com',
+    'sds,fmsdkldfnadfadf'
+	)
+	
+	
+
+//PROCEDIMIENTOS ALMACENADOS
+
+
+	create or replace procedure SP_ADDPRODUCTS(
+	idproducto varchar2,
+	idcategory varchar2,
+	description varchar2,
+	stock varchar2,
+	price DOUBLE,
+	initialcost number,
+	finalcost number
+	) 
+	is  
+	cantidad number := 0;
+	begin  
+	    SELECT COUNT(*) INTO cantidad from products WHERE idproducto = idproducto;
+	    
+		if cantidad > 0 then 
+		validar := 'TRUE';
+		
+	    ELSE
+		validar := 'FALSE';
+	    
+	    END IF;
+	    
+	    RETURN validar;
+	end;  
+
+
+
+
+
+	
+
+
+
+
+	

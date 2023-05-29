@@ -1,0 +1,50 @@
+//Subir imagen a docker
+
+
+NOTA: Primero se debe tener una cuenta docker en dockerhub, sino la tienes crea una
+
+	1.- Primero se debe logear a docker con y ingresar su contraseña
+	
+		-- sudo docker login -u luisfm1998
+		
+		
+		result: 
+			Password: 
+			WARNING! Your password will be stored unencrypted in /home/luisfm/.docker/config.json.
+			Configure a credential helper to remove this warning. See
+			https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+			Login Succeeded
+
+	2.- Ahora vamos a buscar nuestras imagenes con 
+		
+		-- sudo docker images
+		
+		REPOSITORY                       TAG           IMAGE ID       CREATED         SIZE
+		webappthebetters                 latest        583a4449134f   2 hours ago     34.7MB
+	
+	3.- Una vez ya teniendo la imagen docker 'webappthebetters', es la que se subirá con:
+	
+		//Primero se tiene que realizar una tag para identificar la imagen entonces se ejecutará la siguiente linea, especificando el usuario
+		
+		-- docker tag webappthebetters luisfm1998/webappthebetters:v1
+		
+		// Posteriormente ya se sube especificando el tag y listo
+	
+		-- sudo docker push luisfm1998/webappthebetters
+		
+		
+		//Resultado
+					
+			The push refers to repository [docker.io/luisfm1998/webappthebetters]
+			9f28e502cb25: Pushed 
+			fbe0fc9bcf95: Mounted from library/nginx 
+			f1b5933fe4b5: Mounted from library/nginx 
+			v1: digest: sha256:641e23f771c5956bf1651baea3e3dcc07a23d5164106ebcf14116d8291caa0d7 size: 950
+
+		
+		
+	
+		
+	
+		

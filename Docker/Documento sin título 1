@@ -1,0 +1,128 @@
+
+
+		//DOCKER
+
+
+CONTENEDOR: Es un paquete que contiene una app y todo 
+		el software necesario para que se ejecute
+
+
+	Caracteristicas: (Ligero, Portable, Inmutable)
+	-Unico proceso (más especidifcas)
+	-Mas ligeras
+	-Arranque mas rapido
+
+	Escalabilidad: Se adapta a cirscunstancias cambiantes, puede cambiar su tamañao o configuración
+		ejemplo: si tengo un contenedor especial para un microservicio y se sobre cargar por el exceso de usuarios que 
+		ingresan, docker da la facilidad de duplicar el contenedor para que no se sobrecargen los contenedores y sea
+		ligero.
+	
+	Un contenedor no necesita un hypervisor, ya que una maquina virtual si lo ocupa por que su Monitor(Cerebro), y comparte
+	memoria y el procesamiento más maquinas virtuales.
+	
+	
+	
+		//ARRANCAR UN CONTENDOR DOCKER
+		
+		1.- Primero se debe tener el contenedor de una imagen. Para saber las imgenes existentes se utiliza.
+		
+			$sudo docker images
+			
+		2.- Si ya existe una contenedor creado de una imagen se debe consultar los contenedores existentes.
+			
+			$sudo docker ps -a
+			
+		3.- Ahora se debe saber si tu contenedor esta corriendo o esta apagado.
+		
+			$sudo docker ps
+		
+		4.- En caso de que el contenedor este apagado, y se requiera arrancarlo se ejecuta con id del CONTAINER ID:
+			
+			$sudo docker start -a 9f0a69178c4e
+			
+		
+		//Iniciar el contenedor Oracle SQL developer (localmente)
+		
+			1.- Una vez arrancado el contenedor de oracle ahora se ejecuta para poder utilizarlo
+			
+				$sudo docker exec -it --user=oracle myxedb bash
+				
+				//Accesos
+				[oracle@9f0a69178c4e /]$ . oraenv
+				
+				ORACLE_SID = [XE] ? XE
+				
+				[oracle@9f0a69178c4e /]$ sqlplus sys@XEPDB1 as sysdba
+				
+				Enter password:oracle
+
+
+			2.- Ahora vamos a acceder donde se instalo sql oracle:
+				// En el caso se encuentra en descargas/opt/slqdeveloper
+				
+				y se ejecuta en el archivo sqldeveloper.sh que es el ejecutable de oracle y listo
+				
+					$sudo ./sqldeveloper.sh
+					
+				contraseña: oracle
+					
+		
+		
+
+// CONFIGURAR DOCKER EN UBUNTU PARA INGRESAR CONTRASEÑA DE USUARIO A CADA MOMENTO.
+
+	-- sudo usermod -aG docker ${USER}
+	
+	-- su - ${USER}
+	
+	-- id -nG
+	
+	
+//SABER IMAGENES QUE TIENES INSTALADAS 
+
+	-- docker images
+	
+//SABER CONTENEDORES QUE ESTÉN EJECUTANDOSE
+
+	-- docker ps -a		
+
+//PARA UN CONTENERDOR QUE ESTA CORRIENDO
+
+	-- docker stop CONTAINERID
+
+
+	
+//ELIMINAR UNA IMAGEN DE DOKCER 
+	
+	-- docker rmi hello-world
+
+		
+// ELIMINAR CONTENEDORES
+
+	-- docker rm CONTAINERID
+
+	
+
+// CREAR CONTENEDOR A PARTIR DE UNA IMAGEN
+	
+	-- docker run -it hello-world
+	
+	
+
+// CREAR UN CONTENEDOR CON NOMBRE A PARTIR DE UNA IMAGEN 
+
+	-- docker run -it --name micontenedorcillo hello-world
+	
+ 
+//EN CASO DE QUE YA TENGAS UN CONTENEDOR YA EXISTENTE PERO EN PAUSA.
+
+	-- docker start CONTAINERID
+	
+	-- docker exec -it 'nombre del cotenedor'
+
+ 
+
+
+
+
+	

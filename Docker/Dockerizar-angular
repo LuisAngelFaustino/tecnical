@@ -1,0 +1,92 @@
+//Dockerizar angular
+
+
+NOTA:  Para poder dokcerizar, es necesario que se tenga instalado nom, node y docker.
+
+	
+	1.- Para poder realizar la dockerización de tu proyecto en angular, es necesario que compiles tu proyecto de angular.
+	
+	
+		-- ng build
+		
+	
+	2.- Una vez compilado tu proyecto verificar que genere una carpeta dist
+	
+	3.- Ahora se creará un archivo llamado 'Dockerfile' desde raíz y tendrá las configuraciones siguientes.
+	
+	
+			#Se debe buscar la versión node que tiene el proyecto en este caso es 18.15.0
+			FROM node:18.15.0 as build-step
+
+			
+			RUN mkdir -p /app
+
+			WORkDIR /app
+
+			COPY package.json /app
+
+			RUN npm install
+
+			COPY . /app
+
+			RUN npm run build
+
+
+			FROM nginx:1.17.1-alpine
+
+			COPY --from=build-step /app/dist/webapp-the-betters /usr/share/nginx/html	
+		
+	4.- Ahora se creará un archivo llamado '.dockerignore' el cual se encargará que se omitan carpetas y archivos.
+		
+	
+			.git
+
+			.firebase
+
+			.editorconfig
+
+			/node_modules
+
+			/e2e
+
+			/docs
+
+			/gitignore
+
+			*.zip
+
+			*.md
+			
+	5.- Hasta este punto ya está todo listo, ahora nos queda crear la imagen de nuestro proyecto con docker
+	
+		-- docker build -t webappthebetters .
+		
+		
+		result:
+			
+			 => exporting to image                                                                                                                     0.1s
+			 => => exporting layers                                                                                                                    0.1s
+			 => => writing image sha256:583a4449134fa81c9b48e314e926e4e71200e57dd6717551ddcbf320a675d4bf                                               0.0s
+			 => => naming to docker.io/library/webappthebetters     
+			 
+	
+	6.- Ahora vamos a revisar que exista la imagen creada.
+	
+		-- docker images
+		
+		REPOSITORY                       TAG           IMAGE ID       CREATED             SIZE
+		webappthebetters                 latest        583a4449134f   About an hour ago   34.7MB
+
+	7.- Si ya existe la imagen vamos a crear un contenedor de sea imagen con puertos especificos
+	
+		docker run -d -it -p 8080:80 webappthebetters
+		
+	8.- Listo ya se puede acceder al navegador para ver el proyecto, con 'localhost:8080' o con la IP 'http://10.22.53.62:8080/'
+	
+	
+	
+	//LISTO BRO YA ESTÁ TU PROYECTO DOCKERIZADO
+		
+		
+		
+		

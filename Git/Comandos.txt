@@ -1,0 +1,151 @@
+	// Git 
+	
+Comandos esenciales
+	
+	--Primeros pasos debes tener instalado, git, npm y node.
+	
+	//Implementación de git a tu proyecto
+	
+
+	--Cuando creas un proyecto webapp o microservicio API, para poder agregarlo aun
+	repositorio git, es necesario que ingreses a la carpeta y ejectes los siguientes comandos
+	
+		1.- git init
+			--Lo que realizará es crear las carpetas ocultamente necesarias para poder agrgegar tu proyecto,
+			a git
+			
+		2.- git config --global user.name "Luis Faustino" 
+			--Configurar git con datos personales para poder identificar tus propios cambios.
+			
+		    git config --global user.email "luisfaustinomarcos@gmail.com"
+		    	--Configurar tu correo electronico
+			
+		    git config --list
+		    	--Consultar que tu usuario se haya configurado.	
+		
+			
+			
+		2.- git status
+			--Con este comando puedes ver los cambios pendientes que existen.
+			
+		3.- git add .
+			--Con este comando encapsulas tus cambios existentes listos para que se puedan subir.
+		
+			3.1 .- git rm Ejemplo.txt
+			-- Con este comando puedes remover el cambio de un archivo que se encapsuló
+			3.2.- git rm --cached Ejemplo.txt
+			--Quiere decir que con --cached elimina los cambios y datos desde la cache
+		 
+		4.- git commit -m "Implementación de modulos"
+			--Con este comando masdas a guardar todos tus cambios despues del add.
+			
+		5.- git log
+			--Con este comando podemos sabes el historial de los cambios del repositorio
+		
+		
+		
+		
+	//Volver en el tiempo en nuestro repositorio utilizando reset y checkout
+	
+	--Para poder regresar un commit anterior y borrar lo que este actualmente ya que hay 
+	errores entonces se debe de realizar lo siguiente:
+		
+		1.- Primero consultar el historial de los commits con "git log" y copiar 
+		el id del commit al que se requiere viajar en este caso es 'd4159b02512ff1d4bc273c50830376621dffe86f'.
+	
+		2.- git reset d4159b02512ff1d4bc273c50830376621dffe86f --hard
+			-- Con este comando viajamos al commit que se quiere y todo lo trabajado en la rama se elimina.
+		
+	
+	--Cuando realicemos cambios y lo guardemos con 'git add .' sin realizar commits, lo que puede pasar esque sigamos
+	agregando más cambios y sin realizar commits lo que ocurrirá nos mandará un mensaje de que que pasa con los nuevos
+	cambios? para eso ejectaremos el siguiente comando.
+	
+	git add .
+	
+	
+	
+	--Para poder viajar a commits antiguos y poder revisar el historial de su codigo se ejecuta:
+	
+		1.- git checkout d4159b02512ff1d4bc273c50830376621dffe86f 
+	
+		
+		
+		
+	
+	
+//Ejemplo para implemetar git
+
+	1.-  Para agregar git a tu proyecto ejecuta
+		
+		$ git init
+	
+	2.- Se debe de crear un rama "dev" para mandar todos tus cambios ahí
+	
+		$ git checkout -b dev 
+	
+	/////Trabajando.....
+	
+	
+	4.- Se ejecuta git branch para poder saber en que rama estas.
+	
+		$ git branch 
+		
+	5.- Cundo ya se tengan cambios se van a guardar(encapsulados) con git add .
+	
+		$ git add .
+		
+		
+	6.- Ahora se van a guardar esos cambios con un commit
+	
+		$ git commit -m "Modulos de productos"
+		
+	7.- Despues se enviarán esos cambios a al repositorio de la rama remota
+	
+		$ git push origin dev  
+	
+	
+	
+	
+Nota: 
+
+ 	//Deshacer cambios 
+ 		-> git checkout .
+ 		
+ 	//Almacenar cambios en la cache sin haber hecho commits
+ 	
+ 		-> git stash
+ 	
+ 	// Descargar cambios de una rama (te posicionas en la rama dev y ejecutas)
+ 	
+ 		-> git pull origin master
+ 	
+ 	// Despues agregar tu stash para agregar los cambios a la rama ya actaulizada
+ 	
+ 		-> git stash pop
+ 		
+ 	
+ 	
+ 	
+ 	//Descargar cambios de la rama dev
+ 	
+ 	 	-> git push origin dev
+ 	
+	// Cambiar la url remote.origin.url contantemente para poder subir a repo
+	
+		git config --list	
+		-> git config --global remote.origin.url "http://10.50.54.77:8082/aforeazteca/OperacionAfiliacion/APIActualizarMarcasOperativasAAZ.git"
+		
+		
+		
+
+	
+
+
+	
+			
+			
+			
+			
+			
+

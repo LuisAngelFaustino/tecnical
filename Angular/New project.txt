@@ -1,0 +1,8 @@
+//CRER PROYECTO NUEVO EN ANGULAR
+
+
+	1.- CREACIÓN DE PROYECTO
+	
+		-- ng new PortafolioPerfilfaus
+		
+	2.- 

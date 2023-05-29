@@ -1,0 +1,325 @@
+//FORM CONTROL
+
+
+//Detectar cambios en tiempo real en inputs / como el "KeyPress" en JQuery
+
+    1.- En el archivo app.module.ts importar ReactiveFormsModule y declararlo en los impots
+
+        import { ReactiveFormsModule } from '@angular/forms';
+
+          imports: [
+            BrowserModule,
+            AppRoutingModule,
+            ReactiveFormsModule,
+            HttpClientModule,
+            CommonModule
+        ],
+
+    2.-  Ahora en tu componete creado (ejemplo Productos) en el archivo 'productos.component.ts'
+        importar FormControl, tambien agregar OnInit en '@angular/forms' para poder declarar un metodo principal ngOnInit() ya que se ejecute iniciando la pagina y finalmente
+        implementamos Onint en la clase principal del componente.
+
+            //imports
+            import { FormControl } from '@angular/forms';
+            import { Component, OnInit } from '@angular/core';
+
+            //implementacion de OnInit
+
+            export class ProductosComponent implements OnInit{
+            
+            }
+
+            ngOnInit(): void{
+
+            }
+
+    3.- Una vez ya agregado lo necesario para los formularios reactivos, se declara un contructor llamado 'nameProduct' dentro de la clase principal para el input nameProduct
+        y se generara un input tipo text referenciando a el contructor generado con '[formControl]="nameProduct"'.
+
+        export class ProductosComponent implements OnInit{
+
+            nameProduct = new FormControl('soy control');
+        }
+
+        <html>
+            <input type="text" class="input" placeholder="a" formControlName="NameProduct" [formControl]="nameProduct">        
+        </html>
+
+    4.- Ahora solo se ejecutará el evento en el metodo 'coid' que es el que indentificará cuando escriba el usuario en el input.
+
+        export class ProductosComponent implements OnInit{
+
+            nameProduct = new FormControl('soy control');
+
+            ngOnInit(): void{
+                this.nameProduct.valueChanges
+                .subscribe(value =>{
+                    console.log(value);
+                });
+            }
+
+        }
+
+
+//Tipo de campo check en angular para formularios
+
+      agreecheck = new FormControl(false);
+
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [formControl]="agreecheck">
+
+        ngOnInit(): void {
+            this.agreecheck.valueChanges
+            .subscribe(value => {
+                console.log(value);
+            });
+        }
+
+
+//Tipo de campo select en angular para fomularios en tiempo real.
+
+       select = new FormControl('0');
+
+        ngOnInit(): void {
+            this.select.valueChanges
+            .subscribe(value => {
+                console.log(value);
+            });
+        }
+
+        <select name="" id="" class="input" [formControl]="select">
+         <option value="0">Selecciona una opción</option>
+         <option value="ref">Refaccionaria</option>
+         <option value="cha">chacharas</option>
+         <option value="ropilla">Ropa</option>
+        </select>
+
+
+//Tipo de campo radio button para formmularios en tiempo real.
+
+
+        radioForm = new FormControl('radio-2');
+
+        ngOnInit(): void {
+            this.radioForm.valueChanges
+            .subscribe(value => {
+                console.log(value);
+            });
+        }
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="radio-1" name="acept" [formControl]="radioForm">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Default radio
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="radio-2" name="acept" [formControl]="radioForm">
+                <label class="form-check-label" for="flexRadioDefault2">
+                Default checked
+            <   /label>
+            </div>
+
+
+
+
+
+	// VALIDACIONES CON CSS CON CSS
+	
+		
+	
+		html
+		agrega la clase has-error si el campo es incorrecto
+		
+		[class.has-error]="password.touched && password.invalid"
+		
+		css
+		
+		.has-error{
+			boder: 2px solid red;
+		}
+		
+		Declaración de validaciones en password en TS
+			
+			export class ProductosComponent implements OnInit{
+			  Password = new FormControl('',[Validators.required, Validators.maxLength(50)]);	 
+			 }
+
+
+//FORM GROUP
+
+	Son formularios controlados con que pueden contener n cantidad de inputs son validados en conjunto
+	
+	1.- Declaración de formgroup donde se instanciarán todos los inputs y selects que controlara el formgroup, 
+		y se le asignará los campos que son requeridos.
+		
+		-Tambien se anexaron funciones para las validaciones de los inputs 
+		
+		
+		
+		export class ProductosComponent implements OnInit{
+
+
+		  form = new FormGroup({
+		    nameProduct: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+		    Password : new FormControl('',[Validators.required, Validators.maxLength(50)]),
+		    select: new FormControl('0'),
+		    agreecheck: new FormControl(false,[Validators.requiredTrue])
+		  });
+				  
+		  Save(event:any){
+		    if(this.form.valid){
+		      console.log(this.form.value);
+		    }
+		    console.log(this.form.valid);
+		  }
+		    get NameProductInvalidInput(){
+		    return this.form.get('nameProduct')?.touched && this.form.get('nameProduct')?.invalid;
+		  }
+		  get NameProductInvalidLabel(){
+		    return this.form.get('nameProduct')?.touched && this.form.get('nameProduct')?.invalid;
+		  }
+
+		  get PasswordInvalid(){
+		    return this.form.get('Password')?.touched && this.form.get('Password')?.invalid;
+		  }
+		  get SelectValid(){
+		    return this.form.get('select')?.touched && this.form.get('select')?.value == '0';
+		  }
+				  
+				  	  
+	} 		  
+		 		
+		  
+	2.- Se genera en html un una etiqueta con form donde se anexarán los inputsque se quiera controlar y que sean parte del form
+		
+		<form [formGroup]="form" (ngSubmit)="Save($event)">
+		    <div class="container-moduls-in">
+		        <div class="col-12 col-md-5 form-moduls-in">
+		            <h1 class="title">Registro</h1>
+		            <div class="inputContainer col-12">
+		              <input 
+		                type="text" [ngClass]="NameProductInvalidInput ? 'is-invalid input' : 'input'"   
+		                placeholder="a"
+		                formControlName="nameProduct">
+		              <label 
+		              for="" 
+		              [ngClass]="NameProductInvalidInput ? 'is-invalidlabel label' : 'label'"
+		              >Nombre del Producto</label>
+		              <!-- Validacion: {{nameProduct.valid}} -->
+		            </div>
+		            <div class="inputContainer col-12">
+		              <select 
+		              name="" 
+		              id="" 
+		              class="input" 
+		              formControlName="select">
+		              [ngClass]="SelectValid ? 'has-error-select' : ''">
+		                <option value="0" disabled>Selecciona una opción</option>
+		                <option value="ref">Refaccionaria</option>
+		                <option value="cha">chacharas</option>
+		                <option value="ropilla">Ropa</option>
+		              </select>
+		            </div> 
+		            <div class="inputContainer col-12">
+		              <input 
+		              type="text" [ngClass]="PasswordInvalid ? 'is-invalid input' : 'input'"   
+		              placeholder="a"
+		              formControlName="Password">
+		              <label 
+		              for="" 
+		              [ngClass]="PasswordInvalid ? 'is-invalidlabel label' : 'label'"
+		              >Password</label>
+		            </div>
+		            <div class="col-12">
+		              <div class="form-check form-switch ">
+		                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" formControlName="agreecheck">       
+		                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+		              </div> 
+		            </div>
+		            <input type="submit" class="submitBtn" value="Sign up">
+		          </div>
+		    </div>
+		  </form>
+		 
+	
+	3.- 
+	 
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Preguntas requeridas para angular
+
+
+	//Que es angular ?
+		
+		Angular es un framework mantenido por Google que nos permite hacer Single Page Applications (SPA) en frontend,
+		
+	
+	//¿Qué ventajas me da un framework como Angular respecto a hacer la misma aplicación web en Vanilla JavaScript?
+		Por otro lado, al ser Angular un framework, puedo utilizar sus funcionalidades para ahorrarme escribir código (por ejemplo, 
+		puedo validar campos de un formulario de forma muy sencilla con una línea de código, mientras que con Vanilla JavaScript 
+		escribiría este código de forma manual, 
+
+	
+	//¿Qué es una inyección de dependencias en Angular?
+		Mediante una inyección de dependencias yo puedo inyectar a mi componente una dependencia para utilizar una funcionalidad 
+		en el mismo,
+	
+	//¿Qué es un componente en Angular?
+
+		Una aplicación de Angular es como un puzzle, dónde yo integraré los distintos componentes de mi aplicación, que 
+		serían las piezas de dicho puzzle.
+	
+	//¿Qué es Angular CLI?
+	
+		Es una interfaz de línea de comando que yo puedo utilizar para crear mis proyectos de Angular de forma rápida y sencilla
+	
+	//¿Qué es una pipe en Angular? ¿Podrías poner un ejemplo?
+		Una pipe en Angular es una herramienta que nos permite modificar de forma visual la información que mostramos al usuario. 
+		Es importante resaltar que no modifica el valor que tiene una determinada variable, sino simplemente cómo se 
+		le presenta al usuario. 
+
+	//¿Qué es una directiva en Angular? Pon algunos ejemplos
+	
+		Las directivas de Angular me permiten modificar el HTML de forma muy sencilla. Existen directivas, las llamadas 
+		Directivas de Atributo, que simplemente me permiten modificar el estilo de un elemento del DOM
+	
+	//¿Qué es Lazy Load en Angular?
+
+		Lazy Load es un patrón de diseño que me permite que sólo cargue en un determinado momento lo que el 
+		usuario necesita en dicho momento, optimizando por tanto el rendimiento de mi aplicación web. 
+
+	//¿Para qué sirve ngOnInit? Pon un ejemplo
+	
+		Es un hook o función que forma parte del ciclo de vida de los componentes de Angular, y se ejecuta 
+		una vez que el componente está creado. Todo el código que hayamos escrito dentro del ngOnInit se ejecutará en ese momento.
+
+

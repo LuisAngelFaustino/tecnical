@@ -1,0 +1,76 @@
+//Subir a firebase
+
+	1.-En tu proyecto angular installar 
+	
+	-- sudo npm install -g firebase-tools
+	
+	2.- corroborar que se haya instalado firebase con 
+		
+	-- firebase -V
+	
+	3.- Ahora se autenticara con loa cuenta del usuario con
+	
+	-- firebase init
+	
+	4.- Se deberan seleccionar las siguientes configuraciones 
+	
+		? Which Firebase features do you want to set up for this directory?
+	
+			-> Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys
+			
+		? Please select an option: 
+		
+			Use an existing project 
+	
+		? Select a default Firebase project for this directory: 
+		
+			  broker-e474c (WeeBroker) 
+			  webappthebetters (WebAppTheBetters) 
+			  yep-seguros (Yep-Seguros) 
+	
+	
+		? What do you want to use as your public directory? 
+			
+			public
+			
+		? Configure as a single-page app (rewrite all urls to /index.html)? 
+		
+			Yes	
+		
+		? Set up automatic builds and deploys with GitHub? 
+		
+			No
+
+
+	5 Ahora se compilara todo el proyecto 
+	
+		-- ng build
+		
+	6.- Una vez que haya compilado el proyecto vamos a corrobrar que se haya creado una carpeta llamada 'dist'
+	
+	7.- Poosterior mente se accedera al archivo firebase.json y se configurara el elemnto public
+		
+		
+		{
+		  "hosting": {
+		    "public": "dist/webapp-the-betters",     <---- este mero
+		    "ignore": [
+		      "firebase.json",
+		      "**/.*",
+		      "**/node_modules/**"
+		    ],
+		    "rewrites": [
+		      {
+			"source": "**",
+			"destination": "/index.html"
+		      }
+		    ]
+		  }
+		}
+
+	8.- Finalmente ahora se va a subir a firebase con 
+	
+		-- firebase deploy
+		
+
+
